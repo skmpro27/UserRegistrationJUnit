@@ -36,4 +36,16 @@ public class TestUserRegistration{
         boolean result = operation.checkLastName("ku");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void emailTrueTest() {
+        boolean result = operation.checkEmail("kumar.skm03@gmail.com");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void emailFalseTest() {
+        boolean result = operation.checkEmail("kumar.@.gmail.co.c");
+        Assert.assertFalse(result);
+    }
 }
