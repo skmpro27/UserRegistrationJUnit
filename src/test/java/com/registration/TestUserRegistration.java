@@ -63,13 +63,13 @@ public class TestUserRegistration{
 
     @Test
     public void passwordTrueTest() {
-        boolean result = operation.checkPassword("12Shu@#%");
+        boolean result = operation.checkPassword("12Shu@456");
         Assert.assertTrue(result);
     }
 
     @Test
     public void passwordFalseTest() {
-        boolean result = operation.checkPassword("Shbh^&$%");
+        boolean result = operation.checkPassword("Sh12^&$%");
         Assert.assertFalse(result);
     }
 
