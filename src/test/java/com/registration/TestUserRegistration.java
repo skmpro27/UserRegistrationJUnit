@@ -24,4 +24,16 @@ public class TestUserRegistration{
         boolean result = operation.checkFirstName("shub");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void lastNameTrueTest() {
+        boolean result = operation.checkLastName("Kum");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void lastNameFalseTest() {
+        boolean result = operation.checkLastName("ku");
+        Assert.assertFalse(result);
+    }
 }
