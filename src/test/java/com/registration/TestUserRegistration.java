@@ -69,7 +69,7 @@ public class TestUserRegistration{
 
     @Test
     public void passwordFalseTest() {
-        boolean result = operation.checkPassword("12bh$%");
+        boolean result = operation.checkPassword("Shbh^&$%");
         Assert.assertFalse(result);
     }
 
