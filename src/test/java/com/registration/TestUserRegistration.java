@@ -48,4 +48,16 @@ public class TestUserRegistration{
         boolean result = operation.checkEmail("kumar.@.gmail.co.c");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void phoneNumberTrueTest() {
+        boolean result = operation.checkPhoneNumber("91 8989464132");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void phoneNumberFalseTest() {
+        boolean result = operation.checkPhoneNumber("19944556677");
+        Assert.assertFalse(result);
+    }
 }
