@@ -60,4 +60,17 @@ public class TestUserRegistration{
         boolean result = operation.checkPhoneNumber("19944556677");
         Assert.assertFalse(result);
     }
+
+    @Test
+    public void passwordTrueTest() {
+        boolean result = operation.checkPassword("12Shu@#%");
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void passwordFalseTest() {
+        boolean result = operation.checkPassword("12Sh$%");
+        Assert.assertFalse(result);
+    }
+
 }
