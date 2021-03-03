@@ -11,32 +11,38 @@ public class UserRegistration {
     private static final String PATTERN_FOR_PASSWORD =  "^^(?=.*[A-Z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,12}$";
 
     //UC1
-    public boolean checkFirstName(String firstName) {
-        check = Pattern.compile(PATTERN_FOR_NAME).matcher(firstName).matches();
-        return check;
+    public void checkFirstName(String firstName) throws UserRegistrationException {
+        if(!Pattern.compile(PATTERN_FOR_NAME).matcher(firstName).matches())
+            throw new UserRegistrationException("Invalid First Name");
     }
 
     //UC2
-    public boolean checkLastName(String lastName) {
-        check = Pattern.compile(PATTERN_FOR_NAME).matcher(lastName).matches();
-        return check;
+    public void checkLastName(String lastName) throws UserRegistrationException {
+        if (!Pattern.compile(PATTERN_FOR_NAME).matcher(lastName).matches())
+            throw new UserRegistrationException("Invalid Last Name");
     }
 
     //UC3
+    public void checkEmailId(String email) throws UserRegistrationException {
+        if (!Pattern.compile(PATTERN_FOR_EMAIL).matcher(email).matches())
+            throw new UserRegistrationException("Invalid Email");
+    }
+
+    //UC4
+    public void checkPhoneNumber(String phoneNumber) throws UserRegistrationException {
+        if (!Pattern.compile(PATTERN_FOR_PHONE_NUMBER).matcher(phoneNumber).matches())
+            throw new UserRegistrationException("Invalid Phone Number");
+    }
+
+    //UC5
+    public void checkPassword(String password) throws UserRegistrationException {
+        if (!Pattern.compile(PATTERN_FOR_PASSWORD).matcher(password).matches())
+            throw new UserRegistrationException("Invalid Password");
+    }
+
+    //UC9
     public boolean checkEmail(String email) {
         check = Pattern.compile(PATTERN_FOR_EMAIL).matcher(email).matches();
-        return check;
-    }
-
-    //UC4
-    public boolean checkPhoneNumber(String phoneNumber) {
-        check = Pattern.compile(PATTERN_FOR_PHONE_NUMBER).matcher(phoneNumber).matches();
-        return check;
-    }
-
-    //UC4
-    public boolean checkPassword(String password) {
-        check = Pattern.compile(PATTERN_FOR_PASSWORD).matcher(password).matches();
         return check;
     }
 }

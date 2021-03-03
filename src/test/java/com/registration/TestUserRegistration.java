@@ -14,63 +14,48 @@ public class TestUserRegistration{
     }
 
     @Test
-    public void firstNameTrueTest() {
-        boolean result = operation.checkFirstName("Shub");
-        Assert.assertTrue(result);
-    }
-
-    @Test
     public void firstNameFalseTest() {
-        boolean result = operation.checkFirstName("shub");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void lastNameTrueTest() {
-        boolean result = operation.checkLastName("Kum");
-        Assert.assertTrue(result);
+        try {
+            operation.checkFirstName("shub");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid First Name",e.getMessage());
+        }
     }
 
     @Test
     public void lastNameFalseTest() {
-        boolean result = operation.checkLastName("ku");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void emailTrueTest() {
-        boolean result = operation.checkEmail("kumar.skm03@gmail.com");
-        Assert.assertTrue(result);
+        try {
+            operation.checkLastName("Ku");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Last Name", e.getMessage());
+        }
     }
 
     @Test
     public void emailFalseTest() {
-        boolean result = operation.checkEmail("kumar.@.gmail.co.c");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void phoneNumberTrueTest() {
-        boolean result = operation.checkPhoneNumber("91 8989464132");
-        Assert.assertTrue(result);
+        try {
+            operation.checkEmailId("kumar.@.gmail.co.o");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Email",e.getMessage());
+        }
     }
 
     @Test
     public void phoneNumberFalseTest() {
-        boolean result = operation.checkPhoneNumber("19944556677");
-        Assert.assertFalse(result);
-    }
-
-    @Test
-    public void passwordTrueTest() {
-        boolean result = operation.checkPassword("12Shu@456");
-        Assert.assertTrue(result);
+        try {
+            operation.checkPhoneNumber("19944556677");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Phone Number",e.getMessage());
+        }
     }
 
     @Test
     public void passwordFalseTest() {
-        boolean result = operation.checkPassword("Sh12^&$%");
-        Assert.assertFalse(result);
+        try {
+            operation.checkPassword("Sh12^&$%");
+        } catch (UserRegistrationException e) {
+            Assert.assertEquals("Invalid Password",e.getMessage());
+        }
     }
 
 }
